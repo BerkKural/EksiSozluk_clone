@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% block title %}
+    <title>Giriş - Ekşi Sözlük</title>    
+    {% endblock title %}
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://kit.fontawesome.com/7d9fc689df.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    
+
+
+  {% include "partials/_navbar.html" %}
+
+
+  {% if messages %}
+  {% for mesaj in messages %}
+    <div class="alert alert-{{mesaj.tags}} text-center">
+      {{mesaj}}
+    </div>
+  {% endfor %}
+{% else %}
+{% endif %}
+
+
+
+    {% block content %}
+    
+    
+    <section>
+    <div class="container">
+      <div class="section_content d-flex">
+        <div class="left_panel ">
+          <div class="gundem d-flex">
+          <h3>Gündem</h3>
+            <p>
+              <a class="btn " data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+                <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+              </svg>
+              </a>
+            </p>
+        <div class="collapse" id="collapseExample">
+          <div class="card card-body">
+            Gündeminizi Kişiselleştirin
+              <div class="gundem_icerik">
+                <a href="">#Spor</a>
+                <a href="">#Siyaset</a>
+                <a href="">#Anket</a>
+                <a href="">İlişkiler</a>
+              </div>
+            </div>
+          </div>
+        </div>
+            <div class="left_panel_content">
+              <a href=""><p>6 Şubat 2023 deprem yardımlaşma başlığı</p></a>
+              <a href=""><p>Bomboş yolda şerit değiştirirken sinyal vermek</p></a>
+              <a href=""><p>Kadınların %95'inin mesleğe baktığı gerçeği</p></a>
+              <a href=""><p>Ataşehirdeki gizemli kadın</p></a>
+              <a href=""><p>30 yaşını geçmesine rağmen neşeli görünen tip</p></a>
+              <a href=""><p>Hindistan denince akla gelenler</p></a>
+              <a href=""><p>Duvara sprey ile yazılacak şeyler</p></a>
+              <a href=""><p>Boşanmanın eşiğindeki çiftlere tavsiyeler</p></a>
+              <a href=""><p>Sabah akşam güneş alan evde oturmak</p></a>
+              <a href=""><p>Sözlük yazarlarının üşengeçlik seviyeleri</p></a>
+              <a href=""><p>Bir kadını kızdırmanın yolları</p></a>
+              <a href=""><p>Haftada 45 saat çalışmak köleliktir</p></a>
+              <a href=""><p>The banshees of inisherin</p></a>
+              <a href=""><p>Silicon valley bank</p></a>
+              <a href=""><p>Sözlük yazarlarının çektiği fotoğraflar</p></a>
+              <a href=""><p>Öldükten sonra hiçliğin olma ihtimali</p></a>
+              <a href=""><p>Kıymanın kilosunun 300 TL olması</p></a>
+              <a href=""><p>Fake hesap açarak sevgilisini sınayan kadın</p></a>
+            </div>
+        </div>
+        <div class="right_panel">
+            <div class="right_panel_content register_panel">
+              <h4>Giriş</h4>
+                <form action="" method='POST' class="w-50  p-4">
+                  {% csrf_token %}
+                  <label for="">Kullanıcı Adı</label>
+                  <input type="text" name="username" id="" class="form-control">
+                  <label for="">Şifre</label>
+                  <input type="password" name='password' class="form-control">
+                  <input type="submit" class="form-control" value="giriş yapmaya çabala">
+                </form>
+            </div>
+          </div>
+      </div>
+    </div>
+  </section>
+{% endblock content %}
+
+
+  <script src="https://kit.fontawesome.com/7d9fc689df.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
